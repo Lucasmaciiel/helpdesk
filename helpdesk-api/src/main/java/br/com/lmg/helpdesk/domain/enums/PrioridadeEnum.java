@@ -3,30 +3,30 @@ package br.com.lmg.helpdesk.domain.enums;
 import lombok.Getter;
 
 @Getter
-public enum Status {
+public enum PrioridadeEnum {
 
-    ABERTO(0, "ABERTO"),
-    ANDAMENTO(1, "ANDAMENTO"),
-    ENCERRADO(2, "ENCERRADO");
+    BAIXA(0, "BAIXA"),
+    MEDIA(1, "MEDIA"),
+    ALTA(2, "ALTA");
 
     private final Integer codigo;
     private final String descricao;
 
-    Status(Integer codigo, String descricao) {
+    PrioridadeEnum(Integer codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer codigo) {
+    public static PrioridadeEnum toEnum(Integer codigo) {
         if (codigo == null) {
             return null;
         }
 
-        for (Status perfil : Status.values()) {
+        for (PrioridadeEnum perfil : PrioridadeEnum.values()) {
             if (codigo.equals(perfil.codigo)) {
                 return perfil;
             }
         }
-        throw new IllegalArgumentException("Status inválido");
+        throw new IllegalArgumentException("Prioridade inválida");
     }
 }
